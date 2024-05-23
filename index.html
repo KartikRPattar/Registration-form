@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--Coding by codingLab  |www.codinglabweb.com-->
+<html lang="en">
+    <head>
+        <meta charset ="UTF=8"  />
+        <meta http-equiv="x-UA=Compatible" content="IE=enge"  />
+        <meta name="viewreport" content="width=device=width,initial-scale=1.0" />
+        <title>Registration Form</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <section class="container">
+            <header>Registration Form</header>
+            <form action="#"class="form">
+                <div class="input-box">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Enter full name"  required/>
+                </div>
+
+                <div class="input-box">
+                    <label>Email Adress</label>
+                    <input type="text" placeholder="Enter email adress"  required/>
+                </div> 
+                <div class="column">
+                    <div class="input-box">
+                        <label>Phone Number</label>
+                        <input type="text" placeholder="Enter phone number" required/>
+
+                </div>
+                <div class="input-box">
+                    <label>Birth Date</label>
+                    <input type="date" placeholder="Enter birth date" required/>
+
+                </div>
+                </div>
+                
+                <div class="gender box">
+                    <h3>Gender</h3>
+                    <div class="gender-option">
+                        <div class="gender">
+                            <input type="radio" id="check name=gender" />
+                            <label for="check-Male">Male</label>
+                        </div>
+                            <div class="gender">
+                                <input type="radio" id="check name=gender" />
+                                <label for="check-Female">Female</label>
+                                 </div>
+                                 <divclass="gender">
+                                    <input type="radio" id="check name=gender" />
+                                    <label for="check-other">Prefer not to say</label >
+                                    </div>
+                    </div>
+                </div>
+                <div class="forrm">
+                    <label for="profilePicture"><b>Profile Picture</b></label>
+                    <input type="file" id="profilePicture" name="profilePicture">
+                </div>
+    
+            <!-- Password -->
+            <div class="form-group">
+            <label for="password"><b>Password</b></label>
+            <input type="password" id="password" name="password" required>
+            <div id="password-strength"></div> <!-- New element for password strength indicator -->
+            </div>
+    
+            <!-- Confirm Password -->
+            <div class="form-group">
+                <label for="confirmPassword"><b>Confirm Password</b></label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <div class="arrow"></div>
+            </div>
+            <div class="input-box">
+            <label><input type="checkbox" id="check" onclick="enable()">I agree with the terms and conditions.</label>
+            </div>
+            <div class="submit">
+                <button disabled="true" id="btn">Submit</button>
+            </div>
+          </form>
+        </section>
+        <script>
+        document.getElementById('password').addEventListener('input', function() {
+            var password = this.value;
+            var indicator = document.getElementById('password-strength');
+            
+            if (password.length > 8) {
+                indicator.innerText = 'Strong';
+                indicator.style.color = 'green';
+            } else if (password.length >= 6) {
+                indicator.innerText = 'Medium';
+                indicator.style.color = 'orange';
+            } else {
+                indicator.innerText = 'Weak';
+                indicator.style.color = 'red';
+            }
+        });
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('agreeButton').addEventListener('click', function() {
+                    // Clear the form
+                    document.querySelector('form').reset();
+            
+                    // Hide the current form
+                    document.querySelector('.container').style.display = 'none';
+            
+                    // Show the new registration form
+                    document.querySelector('.new-registration-form').style.display = 'block';
+                });
+            
+            });
+        </script>
+    </body>
+        
+
+</html>
